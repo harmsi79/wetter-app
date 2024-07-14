@@ -1,1 +1,3 @@
-import "./style.css";
+import { getCoordinates } from "./src/fetchApi";
+
+getCoordinates("München");

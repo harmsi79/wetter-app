@@ -1,0 +1,117 @@
+.action-bar {
+  display: flex;
+  justify-content: space-between;
+
+  &__back,
+  &__favorite {
+    width: 2.5rem;
+    filter: drop-shadow($text-shadow);
+    cursor: pointer;
+  }
+}
+
+.current-weather {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: $text-shadow;
+
+  &__location {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  &__current-temperature {
+    margin: 0.5rem 0;
+    font-size: 4.5rem;
+    font-weight: 200;
+  }
+
+  &__condition {
+    margin-bottom: 0.25rem;
+  }
+}
+
+.today-forecast {
+  @include card();
+  margin-top: 2rem;
+
+  &__conditions {
+    @include cardHeader();
+  }
+
+  &__hours {
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    gap: 0.5rem;
+  }
+}
+
+.hourly-forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+
+  &__icon {
+    width: 4rem;
+  }
+}
+
+.forecast {
+  @include card();
+  margin-top: 2rem;
+
+  &__title {
+    @include cardHeader();
+  }
+
+  &__days {
+    display: flex;
+    flex-direction: column;
+    gap: $card-header-gap;
+    width: 100%;
+  }
+}
+
+.forecast-day {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: $card-header-gap;
+  border-bottom: $border;
+
+  &:last-child {
+    padding: 0;
+    border: none;
+  }
+
+  &__day {
+    width: 2rem;
+  }
+
+  &__icon {
+    width: 2.5rem;
+  }
+}
+
+.mini-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.mini-stat {
+  @include card();
+
+  &__value {
+    margin: 1rem 0 1rem 0;
+    font-size: 1.5rem;
+  }
+}

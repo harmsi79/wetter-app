@@ -1,0 +1,151 @@
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+
+  &__heading {
+    font-size: 3rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-shadow: $text-shadow;
+  }
+
+  &__edit {
+    background-color: transparent;
+    border: none;
+    color: $text-color;
+    font-size: 1rem;
+    font-weight: 700;
+    text-shadow: $text-shadow;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+
+  &__search-bar {
+    width: 100%;
+    position: relative;
+  }
+
+  &__search-input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: $border-radius;
+    border: none;
+  }
+
+  &__search-results {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: $elevation;
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    z-index: 2;
+    transform: translateZ(100px);
+
+    .loading {
+      height: 100px;
+      flex-direction: row;
+    }
+
+    &--hidden {
+      display: none;
+    }
+
+    .search-result {
+      padding: 0.75rem;
+      border-bottom: $border;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $elevation-2;
+      }
+
+      &:last-child {
+        border: none;
+      }
+
+      &__name {
+        font-size: 1.25rem;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &__cities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.city-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &__delete {
+    display: none;
+    width: 2rem;
+    filter: drop-shadow($text-shadow);
+    color: rgb(241, 60, 60);
+    cursor: pointer;
+
+    &--show {
+      display: block;
+    }
+  }
+}
+
+.city {
+  @include card();
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  cursor: pointer;
+  flex-grow: 1;
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    ),
+    var(--condition-image);
+  background-size: cover;
+  background-position: 50% 25%;
+  text-shadow: $text-shadow;
+
+  &__name {
+    font-weight: 400;
+    font-size: 1.5rem;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &__condition {
+    margin-top: 2rem;
+  }
+
+  &__left-column {
+    height: 100%;
+  }
+
+  &__right-column {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__temperature {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: right;
+  }
+}

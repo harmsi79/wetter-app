@@ -1,0 +1,54 @@
+@import "mixins";
+@import "variables";
+@import "detailView";
+@import "mainMenu";
+@import "loading";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+body {
+  @include largeScreens {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: lighten($background, 10);
+  }
+}
+
+#app {
+  background: linear-gradient(0deg, $elevation-2 0%, $background 51%);
+  color: $text-color;
+  padding: 1rem;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+
+  @include largeScreens {
+    width: 400px;
+    height: $max-height-desktop;
+    min-height: unset;
+    overflow: auto;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+  }
+
+  &.show-background {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2)
+      ),
+      var(--detail-condition-image);
+    background-size: cover;
+    background-position: center;
+  }
+}

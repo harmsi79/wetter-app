@@ -1,0 +1,23 @@
+@mixin card() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: $border-radius;
+  backdrop-filter: blur(50px);
+  box-shadow: $box-shadow;
+}
+
+@mixin cardHeader() {
+  width: 100%;
+  border-bottom: $border;
+  padding-bottom: $card-header-gap;
+  margin-bottom: $card-header-gap;
+  font-size: 1rem;
+}
+
+@mixin largeScreens {
+  @media screen and (min-width: 700px) {
+    @content;
+  }
+}
